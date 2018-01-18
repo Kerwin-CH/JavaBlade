@@ -18,14 +18,9 @@ public class UserController {
     public ARestResponse saveUser(@Param String name){
 
         User user=new User();
-        user.setRealName(name);
-        user.setAge(12);
-        user.setPassword("wasdwasd");
-        user.setUsername("刘万");
-        Long requset= user.save();
 
 
-        return ARestResponse.ok(user,400);
+        return ARestResponse.ok(user.findAll(),400);
     }
 
 }

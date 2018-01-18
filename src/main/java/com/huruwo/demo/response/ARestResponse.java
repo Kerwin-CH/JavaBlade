@@ -7,22 +7,17 @@ import java.beans.ConstructorProperties;
 
 public class ARestResponse<T> {
     private T data;
-    private boolean success;
+    private int success;
     private String msg;
     private int retCode;
-    private long timestamp;
 
-    public ARestResponse() {
-        this.timestamp = (long) DateKit.nowUnix();
-    }
 
-    public ARestResponse(boolean success) {
-        this.timestamp = (long)DateKit.nowUnix();
+
+    public ARestResponse(int success) {
         this.success = success;
     }
 
-    public ARestResponse(boolean success, T data) {
-        this.timestamp = (long)DateKit.nowUnix();
+    public ARestResponse(int success, T data) {
         this.success = success;
         this.data = data;
     }
@@ -31,7 +26,7 @@ public class ARestResponse<T> {
         return this.data;
     }
 
-    public boolean isSuccess() {
+    public int isSuccess() {
         return this.success;
     }
 
@@ -47,67 +42,57 @@ public class ARestResponse<T> {
         this.retCode = retCode;
     }
 
-    public long getTimestamp() {
-        return this.timestamp;
-    }
-
     public static ARestResponse ok() {
-        return builder().success(true).build();
+        return builder().success(1).build();
     }
 
     public static <T> ARestResponse ok(T data) {
-        return builder().success(true).data(data).build();
+        return builder().success(1).data(data).build();
     }
 
     public static <T> ARestResponse ok(T data, int retCode) {
-        return builder().success(true).data(data).retCode(retCode).build();
+        return builder().success(1).data(data).retCode(retCode).build();
     }
 
     public static ARestResponse fail() {
-        return builder().success(false).build();
+        return builder().success(0).build();
     }
 
     public static ARestResponse fail(String msg) {
-        return builder().success(false).msg(msg).build();
+        return builder().success(0).msg(msg).build();
     }
 
     public static ARestResponse fail(int retCode) {
-        return builder().success(false).retCode(retCode).build();
+        return builder().success(0).retCode(retCode).build();
     }
 
     public static ARestResponse fail(int retCode, String msg) {
-        return builder().success(false).msg(msg).retCode(retCode).build();
+        return builder().success(0).msg(msg).retCode(retCode).build();
     }
 
     private static int $default$retCode() {
         return -1;
     }
 
-    private static long $default$timestamp() {
-        return (long)DateKit.nowUnix();
-    }
 
     public static <T> ARestResponse.ARestResponseBuilder<T> builder() {
         return new ARestResponse.ARestResponseBuilder();
     }
 
-    @ConstructorProperties({"data", "success", "msg", "retCode", "timestamp"})
-    public ARestResponse(T data, boolean success, String msg, int retCode, long timestamp) {
+    @ConstructorProperties({"data", "success", "msg", "retCode"})
+    public ARestResponse(T data, int success, String msg, int retCode) {
         this.data = data;
         this.success = success;
         this.msg = msg;
         this.retCode = retCode;
-        this.timestamp = timestamp;
     }
 
     public static class ARestResponseBuilder<T> {
         private T data;
-        private boolean success;
+        private int success;
         private String msg;
         private boolean retCode$set;
         private int retCode;
-        private boolean timestamp$set;
-        private long timestamp;
 
         ARestResponseBuilder() {
         }
@@ -117,7 +102,7 @@ public class ARestResponse<T> {
             return this;
         }
 
-        public ARestResponse.ARestResponseBuilder<T> success(boolean success) {
+        public ARestResponse.ARestResponseBuilder<T> success(int success) {
             this.success = success;
             return this;
         }
@@ -133,18 +118,13 @@ public class ARestResponse<T> {
             return this;
         }
 
-        public ARestResponse.ARestResponseBuilder<T> timestamp(long timestamp) {
-            this.timestamp = timestamp;
-            this.timestamp$set = true;
-            return this;
-        }
 
         public ARestResponse<T> build() {
-            return new ARestResponse(this.data, this.success, this.msg, this.retCode$set ? this.retCode : ARestResponse.$default$retCode(), this.timestamp$set ? this.timestamp : ARestResponse.$default$timestamp());
+            return new ARestResponse(this.data==null?"":this.data, this.success, this.msg==null?"":this.msg, this.retCode$set ? this.retCode : ARestResponse.$default$retCode());
         }
 
         public String toString() {
-            return "ARestResponse.ARestResponseBuilder(data=" + this.data + ", success=" + this.success + ", msg=" + this.msg + ", retCode=" + this.retCode + ", timestamp=" + this.timestamp + ")";
+            return "ARestResponse.ARestResponseBuilder(data=" + this.data + ", success=" + this.success + ", msg=" + this.msg + ", retCode=" + this.retCode+ ")";
         }
     }
 }
