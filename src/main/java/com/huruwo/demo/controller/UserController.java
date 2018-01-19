@@ -1,8 +1,7 @@
 package com.huruwo.demo.controller;
 
 import com.blade.mvc.annotation.*;
-import com.blade.mvc.ui.RestResponse;
-import com.huruwo.demo.User;
+import com.huruwo.demo.Users;
 import com.huruwo.demo.response.ARestResponse;
 
 /**
@@ -17,10 +16,20 @@ public class UserController {
     @JSON
     public ARestResponse saveUser(@Param String name){
 
-        User user=new User();
+        try {
+            Users temp = new Users();
+            temp.setUsername(name);
+            temp.setPassword(name);
+            temp.setEmail(name);
 
+            temp.save();
+            return ARestResponse.ok(temp.findAll(),400);
 
-        return ARestResponse.ok(user.findAll(),400);
+        }
+        catch (Exception e){
+             return ARestResponse.fail(e.getMessage());
+        }
+
     }
 
 }
