@@ -60,10 +60,12 @@ public final class SqliteJdbc {
             if (count == 0) {
                 String            cp  = SqliteJdbc.class.getClassLoader().getResource("").getPath();
                 InputStreamReader isr = new InputStreamReader(new FileInputStream(cp + "schema.sql"), "UTF-8");
-
+                /**
+                 * 根据sql文件写入
+                 */
                 String sql = new BufferedReader(isr).lines().collect(Collectors.joining("\n"));
-               // int    r   = statement.executeUpdate(sql);
-               // log.info("initialize import database - {}", r);
+                int    r   = statement.executeUpdate(sql);
+                log.info("initialize import database - {}", r);
             }
             rs.close();
             statement.close();

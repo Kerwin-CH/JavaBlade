@@ -22,6 +22,12 @@ public class IndexController {
         return "index.html";
     }
 
+    @GetRoute("doc")
+    public String doc(Request request) {
+
+        return "doc.html";
+    }
+
     @GetRoute("login")
     public String login() {
         return "login.html";

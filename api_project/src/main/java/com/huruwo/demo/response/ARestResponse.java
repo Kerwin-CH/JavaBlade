@@ -120,7 +120,7 @@ public class ARestResponse<T> {
 
 
         public ARestResponse<T> build() {
-            return new ARestResponse(this.data==null?"":this.data, this.success, this.msg==null?"":this.msg, this.retCode$set ? this.retCode : ARestResponse.$default$retCode());
+            return new ARestResponse(this.data, this.success, this.msg==null?"":this.msg, this.retCode$set ? this.retCode : ARestResponse.$default$retCode());
         }
 
         public String toString() {
