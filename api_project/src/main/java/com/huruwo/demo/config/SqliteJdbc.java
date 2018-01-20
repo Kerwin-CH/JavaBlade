@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 public final class SqliteJdbc {
 
-    public static final String DB_NAME = "tale.db";
+    public static final String DB_NAME = "restful.db";
     public static String DB_PATH;
     public static String DB_SRC;
 
@@ -62,8 +62,8 @@ public final class SqliteJdbc {
                 InputStreamReader isr = new InputStreamReader(new FileInputStream(cp + "schema.sql"), "UTF-8");
 
                 String sql = new BufferedReader(isr).lines().collect(Collectors.joining("\n"));
-                int    r   = statement.executeUpdate(sql);
-                log.info("initialize import database - {}", r);
+               // int    r   = statement.executeUpdate(sql);
+               // log.info("initialize import database - {}", r);
             }
             rs.close();
             statement.close();

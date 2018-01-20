@@ -19,7 +19,6 @@ public class IndexController {
     @GetRoute
     public String index(Request request) {
 
-
         return "index.html";
     }
 
