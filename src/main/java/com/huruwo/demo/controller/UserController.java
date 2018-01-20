@@ -1,5 +1,6 @@
 package com.huruwo.demo.controller;
 
+import com.blade.kit.DateKit;
 import com.blade.mvc.annotation.*;
 import com.huruwo.demo.Users;
 import com.huruwo.demo.response.ARestResponse;
@@ -21,9 +22,10 @@ public class UserController {
             temp.setUsername(name);
             temp.setPassword(name);
             temp.setEmail(name);
+            temp.setCreated(DateKit.nowUnix());
 
             temp.save();
-            return ARestResponse.ok(temp.findAll(),400);
+            return ARestResponse.ok();
 
         }
         catch (Exception e){
