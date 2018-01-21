@@ -2,6 +2,7 @@ package com.huruwo.demo.controller;
 
 import com.blade.kit.DateKit;
 import com.blade.mvc.annotation.*;
+import com.blade.mvc.ui.RestResponse;
 import com.huruwo.demo.bean.ResUsers;
 import com.huruwo.demo.bean.Users;
 import com.huruwo.demo.response.ARestResponse;
@@ -13,10 +14,21 @@ import com.huruwo.demo.response.ARestResponse;
 @Path(value = "user")
 public class UserController {
 
+    @PostRoute("test")
+    @JSON
+    public RestResponse register(@Param String test) {
+
+        if(test!=null){
+            return RestResponse.ok(test);
+        }
+        else {
+            return RestResponse.fail("数据不能为空");
+        }
+    }
 
     @PostRoute("register")
     @JSON
-    public ARestResponse register(@Param String name,@Param String password,@Param String email){
+    public ARestResponse register(@Param String name,@Param String pass,@Param String email){
 
         try {
             /**
@@ -29,7 +41,7 @@ public class UserController {
 
             Users temp = new Users();
             temp.setUsername(name);
-            temp.setPassword(password);
+            temp.setPassword(pass);
             temp.setEmail(email);
             temp.save();
 

@@ -1,4 +1,4 @@
-package com.huruwo.restfulapp;
+package com.huruwo.restfulapp.api.bean;
 
 import java.util.List;
 

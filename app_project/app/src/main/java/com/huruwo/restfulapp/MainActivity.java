@@ -6,9 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.huruwo.restfulapp.api.AppAplication;
 import com.huruwo.restfulapp.api.AppDataRepository;
+import com.huruwo.restfulapp.api.AppException;
+import com.huruwo.restfulapp.api.bean.BaseBean;
+import com.huruwo.restfulapp.api.bean.LoginBean;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -18,7 +23,13 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
 
+    private EditText edName;
+    private EditText edPass;
     private Button button;
+    private Button button2;
+
+
+
     private final CompositeDisposable mDisposable = new CompositeDisposable();
 
 
@@ -27,12 +38,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        edName = (EditText) findViewById(R.id.ed_name);
+        edPass = (EditText) findViewById(R.id.ed_pass);
         button = (Button) findViewById(R.id.button);
+        button2 = (Button) findViewById(R.id.button2);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AppDataRepository.getFuliDataRepository("", "").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                AppDataRepository.userLoginRepository(edName.getText().toString().trim(), edPass.getText().toString().trim()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                         .subscribe(new Observer<LoginBean>() {
                             @Override
                             public void onSubscribe(Disposable d) {
@@ -42,16 +56,21 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onNext(LoginBean value) {
                                 Log.i("danxx", "setValue------>");
-                                if(value.getData()!=null)
-                                Toast.makeText(getBaseContext(),value.getData().getEmail(), Toast.LENGTH_SHORT).show();
 
-                                startActivity(new Intent(MainActivity.this,NoteActivity.class));
+                                if(value.getSuccess()==1) {
+                                    Toast.makeText(getBaseContext(), "登录成功", Toast.LENGTH_SHORT).show();
+                                    AppAplication.uid=value.getData().getUid();
+                                    startActivity(new Intent(MainActivity.this, NoteListActivity.class));
+                                }else {
+                                    onError(new AppException(value.getMsg()));
+                                }
                             }
 
                             @Override
                             public void onError(Throwable e) {
                                 Log.i("danxx", "onError------>");
                                 e.printStackTrace();
+                                Toast.makeText(getBaseContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -63,6 +82,41 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppDataRepository.userRegisterRepository(edName.getText().toString().trim(), edPass.getText().toString().trim()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(new Observer<BaseBean>() {
+                            @Override
+                            public void onSubscribe(Disposable d) {
+                                mDisposable.add(d);
+                            }
+
+                            @Override
+                            public void onNext(BaseBean value) {
+                                Log.i("danxx", "setValue------>");
+
+                                if(value.getSuccess()==1) {
+                                    Toast.makeText(getBaseContext(), "注册成功，请登录", Toast.LENGTH_SHORT).show();
+                                }else {
+                                    onError(new AppException(value.getMsg()));
+                                }
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                Log.i("danxx", "onError------>");
+                                e.printStackTrace();
+                                Toast.makeText(getBaseContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+
+                            @Override
+                            public void onComplete() {
+                                Log.i("danxx", "onComplete------>");
+                            }
+                        });
+            }
+        });
     }
 
     @Override

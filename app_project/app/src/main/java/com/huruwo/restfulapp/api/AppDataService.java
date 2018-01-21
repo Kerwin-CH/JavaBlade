@@ -1,7 +1,8 @@
 package com.huruwo.restfulapp.api;
 
-import com.huruwo.restfulapp.LoginBean;
-import com.huruwo.restfulapp.NoteBean;
+import com.huruwo.restfulapp.api.bean.LoginBean;
+import com.huruwo.restfulapp.api.bean.NoteBean;
+import com.huruwo.restfulapp.api.bean.BaseBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -16,10 +17,18 @@ public interface AppDataService {
 
     @FormUrlEncoded
     @POST("user/login")
-    Observable<LoginBean> getFuliData(@Field("name") String name, @Field("pass") String pass);
+    Observable<LoginBean> userLogin(@Field("name") String name, @Field("pass") String pass);
+
+    @FormUrlEncoded
+    @POST("user/register")
+    Observable<BaseBean> userRegister(@Field("name") String name, @Field("pass") String pass);
 
     @FormUrlEncoded
     @POST("note/list")
     Observable<NoteBean> getNoteList(@Field("uid") int uid);
 
+
+    @FormUrlEncoded
+    @POST("note/add")
+    Observable<BaseBean>addNote(@Field("uid") int uid,@Field("content") String content);
 }

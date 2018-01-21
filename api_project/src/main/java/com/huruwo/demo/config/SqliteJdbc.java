@@ -3,6 +3,7 @@ package com.huruwo.demo.config;
 import com.blade.mvc.Const;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.sqlite.SQLiteException;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -63,9 +64,14 @@ public final class SqliteJdbc {
                 /**
                  * 根据sql文件写入
                  */
-                String sql = new BufferedReader(isr).lines().collect(Collectors.joining("\n"));
-                int    r   = statement.executeUpdate(sql);
-                log.info("initialize import database - {}", r);
+                try {
+                    String sql = new BufferedReader(isr).lines().collect(Collectors.joining("\n"));
+                    int r = statement.executeUpdate(sql);
+                    log.info("initialize import database - {}", r);
+                }
+                catch (SQLiteException e){
+                    log.info("initialize import database - {}", e.getResultCode());
+                }
             }
             rs.close();
             statement.close();
