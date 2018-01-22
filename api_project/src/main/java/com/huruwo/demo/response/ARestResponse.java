@@ -1,9 +1,11 @@
 package com.huruwo.demo.response;
 
 import com.blade.kit.DateKit;
+import com.blade.kit.JsonKit;
+import com.blade.mvc.ui.RestResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.beans.ConstructorProperties;
-
 
 public class ARestResponse<T> {
     private T data;
@@ -47,6 +49,7 @@ public class ARestResponse<T> {
     }
 
     public static <T> ARestResponse ok(T data) {
+        System.out.print(builder().toString());
         return builder().success(1).data(data).build();
     }
 
@@ -93,6 +96,7 @@ public class ARestResponse<T> {
         private String msg;
         private boolean retCode$set;
         private int retCode;
+        private ARestResponse aRestResponse;
 
         ARestResponseBuilder() {
         }
@@ -120,11 +124,19 @@ public class ARestResponse<T> {
 
 
         public ARestResponse<T> build() {
-            return new ARestResponse(this.data, this.success, this.msg==null?"":this.msg, this.retCode$set ? this.retCode : ARestResponse.$default$retCode());
+
+            aRestResponse= new ARestResponse(this.data, this.success, this.msg==null?"":this.msg, this.retCode$set ? this.retCode : ARestResponse.$default$retCode());
+            String json = JsonKit.toString(aRestResponse);
+            System.out.print(json+"\n");
+            return aRestResponse;
         }
 
         public String toString() {
-            return "ARestResponse.ARestResponseBuilder(data=" + this.data + ", success=" + this.success + ", msg=" + this.msg + ", retCode=" + this.retCode+ ")";
+
+
+            return "";
+            //return "RestResponse.RestResponseBuilder(data=" + this.data + ", success=" + this.success + ", msg=" + this.msg + ", retCode=" + this.retCode +")";
+
         }
     }
 }

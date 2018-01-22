@@ -24,7 +24,9 @@
 
 # 服务器截图
 
-<img src="https://github.com/HuRuWo/LearnRESTfulApi/blob/master/sceen_img/006.jpg" width = "800" height = "480" alt="图片名称" align=center />
+<img src="https://github.com/HuRuWo/LearnRESTfulApi/blob/master/sceen_img/006.png" width = "800" height = "480" alt="图片名称" align=center />
+
+<img src="https://github.com/HuRuWo/LearnRESTfulApi/blob/master/sceen_img/007.png" width = "800" height = "480" alt="图片名称" align=center />
 
 # 其他
 
