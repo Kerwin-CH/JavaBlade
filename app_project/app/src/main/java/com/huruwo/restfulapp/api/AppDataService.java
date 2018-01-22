@@ -30,5 +30,14 @@ public interface AppDataService {
 
     @FormUrlEncoded
     @POST("note/add")
-    Observable<BaseBean>addNote(@Field("uid") int uid,@Field("content") String content);
+    Observable<BaseBean> addNote(@Field("uid") int uid,@Field("content") String content);
+
+    //note/update
+    @FormUrlEncoded
+    @POST("note/update")
+    Observable<BaseBean> updateNote(@Field("uid") int uid,@Field("noteid") int noteid,@Field("content") String content);
+
+    @FormUrlEncoded
+    @POST("note/delete")
+    Observable<BaseBean> deleteNote(@Field("uid") int uid,@Field("noteid") int noteid);
 }

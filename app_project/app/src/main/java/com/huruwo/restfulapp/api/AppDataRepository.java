@@ -49,4 +49,21 @@ public class AppDataRepository {
         return data;
     }
 
+    public static Observable<BaseBean>updateNoteRepository(int uid,int noteid,String content){
+
+        Observable<BaseBean> data = ApiClient.getAppDataService().updateNote(uid,noteid,content);
+
+        //可以操作Observable来筛选网络或者是本地数据
+
+        return data;
+    }
+
+    public static Observable<BaseBean> deleteNoteRepository(int uid,int noteid){
+
+        Observable<BaseBean> data = ApiClient.getAppDataService().deleteNote(uid,noteid);
+
+        //可以操作Observable来筛选网络或者是本地数据
+
+        return data;
+    }
 }

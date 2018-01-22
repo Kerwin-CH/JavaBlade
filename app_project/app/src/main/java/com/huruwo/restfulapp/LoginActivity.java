@@ -21,7 +21,7 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private EditText edName;
     private EditText edPass;
@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
                                 if(value.getSuccess()==1) {
                                     Toast.makeText(getBaseContext(), "登录成功", Toast.LENGTH_SHORT).show();
                                     AppAplication.uid=value.getData().getUid();
-                                    startActivity(new Intent(MainActivity.this, NoteListActivity.class));
+                                    startActivity(new Intent(LoginActivity.this, NoteListActivity.class));
+                                    finish();
                                 }else {
                                     onError(new AppException(value.getMsg()));
                                 }

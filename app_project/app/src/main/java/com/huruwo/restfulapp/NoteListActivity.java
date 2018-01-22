@@ -1,17 +1,22 @@
 package com.huruwo.restfulapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.huruwo.restfulapp.api.AppAplication;
 import com.huruwo.restfulapp.api.AppDataRepository;
+import com.huruwo.restfulapp.api.AppException;
+import com.huruwo.restfulapp.api.bean.BaseBean;
 import com.huruwo.restfulapp.api.bean.NoteBean;
 
 import io.reactivex.Observer;
@@ -43,14 +48,60 @@ public class NoteListActivity extends AppCompatActivity {
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
                 Intent intent=new Intent(NoteListActivity.this,NoteAddActivity.class);
                 intent.putExtra("content",((NoteBean.DataBean)adapter.getData().get(position)).getContent());
+                intent.putExtra("noteid",((NoteBean.DataBean)adapter.getData().get(position)).getNoteid());
                 startActivity(intent);
+            }
+        });
+
+
+        noteAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(final BaseQuickAdapter adapter, View view, final int position) {
+
+                new AlertDialog.Builder(NoteListActivity.this).setTitle("确认删除").setMessage("删除该条记事").setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        AppDataRepository.deleteNoteRepository(AppAplication.uid,((NoteBean.DataBean)adapter.getData().get(position)).getNoteid()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Observer<BaseBean>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+                                        mDisposable.add(d);
+                                    }
+
+                                    @Override
+                                    public void onNext(BaseBean value) {
+                                        if(value.getSuccess()==0){
+                                             onError(new AppException(value.getMsg()));
+                                        }else {
+                                            Toast.makeText(getBaseContext(), "删除成功", Toast.LENGTH_SHORT).show();
+
+                                        }
+
+                                        //刷新
+                                        adapter.remove(position);
+                                    }
+
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        Toast.makeText(getBaseContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+
+                                    @Override
+                                    public void onComplete() {
+
+                                    }
+                                });
+                    }
+                }).create().show();
+
+
+                return false;
             }
         });
 
         noteList.setLayoutManager(new LinearLayoutManager(this));
         noteList.setAdapter(noteAdapter);
         //noteList.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

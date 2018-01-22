@@ -23,7 +23,10 @@ public class NoteAddActivity extends AppCompatActivity {
 
     private EditText edNote;
     private Button button;
+    private int noteid;
+    private String content;
     private final CompositeDisposable mDisposable = new CompositeDisposable();
+    private boolean isEdit=false;//是否进入编辑
 
 
     @Override
@@ -33,43 +36,87 @@ public class NoteAddActivity extends AppCompatActivity {
         edNote = (EditText) findViewById(R.id.ed_note);
         button = (Button) findViewById(R.id.button);
 
+        noteid=getIntent().getIntExtra("noteid",0);
+        content=getIntent().getStringExtra("content");
 
-        edNote.setText(getIntent().getStringExtra("content"));
+        if(noteid>0) {
+            edNote.setText(content);
+            isEdit=true;
+        }
+
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (edNote.getText().toString().trim().length() > 0)
-                    AppDataRepository.addNoteRepository(AppAplication.uid, edNote.getText().toString().trim()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(new Observer<BaseBean>() {
-                                @Override
-                                public void onSubscribe(Disposable d) {
-                                    mDisposable.add(d);
-                                }
 
-                                @Override
-                                public void onNext(BaseBean value) {
-                                    Log.i("danxx", "setValue------>");
-                                    if(value.getSuccess()==0){
-                                        onError(new AppException(value.getMsg()));
-                                    }else {
-                                        Toast.makeText(getBaseContext(), "添加成功", Toast.LENGTH_SHORT).show();
-                                        finish();
+                content=edNote.getText().toString().trim();
+
+                if (edNote.getText().toString().trim().length() > 0) {
+
+                    if(isEdit){
+                        AppDataRepository.updateNoteRepository(AppAplication.uid,noteid,content).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<BaseBean>() {
+                            @Override
+                            public void onSubscribe(Disposable d) {
+                                mDisposable.add(d);
+                            }
+
+                            @Override
+                            public void onNext(BaseBean value) {
+                                Log.i("danxx", "setValue------>");
+                                if (value.getSuccess() == 0) {
+                                    onError(new AppException(value.getMsg()));
+                                } else {
+                                    Toast.makeText(getBaseContext(), "修改成功", Toast.LENGTH_SHORT).show();
+                                    finish();
+                                }
+                            }
+
+                            @Override
+                            public void onError(Throwable e) {
+                                Log.i("danxx", "onError------>");
+                                e.printStackTrace();
+                            }
+
+                            @Override
+                            public void onComplete() {
+                                Log.i("danxx", "onComplete------>");
+                            }
+                        });;
+                    }
+                    else {
+                        AppDataRepository.addNoteRepository(AppAplication.uid, content).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(new Observer<BaseBean>() {
+                                    @Override
+                                    public void onSubscribe(Disposable d) {
+                                        mDisposable.add(d);
                                     }
-                                }
 
-                                @Override
-                                public void onError(Throwable e) {
-                                    Log.i("danxx", "onError------>");
-                                    e.printStackTrace();
-                                }
+                                    @Override
+                                    public void onNext(BaseBean value) {
+                                        Log.i("danxx", "setValue------>");
+                                        if (value.getSuccess() == 0) {
+                                            onError(new AppException(value.getMsg()));
+                                        } else {
+                                            Toast.makeText(getBaseContext(), "添加成功", Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        }
+                                    }
 
-                                @Override
-                                public void onComplete() {
-                                    Log.i("danxx", "onComplete------>");
-                                }
-                            });
-                else Toast.makeText(getBaseContext(),"你还没写东西呢!!!", Toast.LENGTH_SHORT).show();
+                                    @Override
+                                    public void onError(Throwable e) {
+                                        Log.i("danxx", "onError------>");
+                                        e.printStackTrace();
+                                    }
+
+                                    @Override
+                                    public void onComplete() {
+                                        Log.i("danxx", "onComplete------>");
+                                    }
+                                });
+                    }
+                }
+                else {Toast.makeText(getBaseContext(),"你还没写东西呢!!!", Toast.LENGTH_SHORT).show();}
             }
         });
     }
