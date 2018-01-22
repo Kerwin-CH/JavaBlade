@@ -33,8 +33,9 @@
 项目只是抛砖引玉，功能不复杂。
 
 相关博客文章
-
+[APP接口开发的入门指南](https://www.jianshu.com/p/18c8690f3188)
 个人主页
+[五谷观精分道长](https://www.jianshu.com/u/d84f93a917c2)
 
 
 # 感谢

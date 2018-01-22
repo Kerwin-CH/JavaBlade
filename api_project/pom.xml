@@ -20,6 +20,12 @@
             <version>2.0.6-BETA</version>
         </dependency>
 
+        <!-- 模板引擎 api文档必须加上 -->
+        <dependency>
+            <groupId>com.bladejava</groupId>
+            <artifactId>blade-template-jetbrick</artifactId>
+            <version>0.1.2</version>
+        </dependency>
 
         <dependency>
             <groupId>com.zaxxer</groupId>
@@ -46,6 +52,12 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--swagger依赖-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
 
     </dependencies>
     <build>

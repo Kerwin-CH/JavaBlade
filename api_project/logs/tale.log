@@ -1,0 +1,43 @@
+2018-01-22 17:47:41:212 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: jdk.version    => 1.8.0_131
+2018-01-22 17:47:41:214 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: user.dir       => C:\Users\Administrator\Desktop\api\java_restful\api_project
+2018-01-22 17:47:41:214 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: java.io.tmpdir => C:\Users\ADMINI~1\AppData\Local\Temp\
+2018-01-22 17:47:41:214 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: user.timezone  => Asia/Shanghai
+2018-01-22 17:47:41:214 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: file.encoding  => UTF-8
+2018-01-22 17:47:41:215 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: classpath      => C:\Users\Administrator\Desktop\api\java_restful\api_project\target\classes
+2018-01-22 17:47:41:275 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/list
+2018-01-22 17:47:41:275 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/
+2018-01-22 17:47:41:275 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/login
+2018-01-22 17:47:41:275 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/delete
+2018-01-22 17:47:41:275 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/doc
+2018-01-22 17:47:41:276 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/user/test
+2018-01-22 17:47:41:276 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/user/register
+2018-01-22 17:47:41:276 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/user/login
+2018-01-22 17:47:41:276 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/update
+2018-01-22 17:47:41:276 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/add
+2018-01-22 17:47:41:279 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Register bean: [com.huruwo.demo.config.DbConfig@71a144, com.blade.Environment@18369b5, com.huruwo.demo.config.TplConfig@bb5dd, com.huruwo.demo.controller.NoteController@b84cf3, com.huruwo.demo.config.TplConfig@bb5dd, com.huruwo.demo.controller.IndexController@15cb9a1, com.huruwo.demo.controller.UserController@134aabe]
+2018-01-22 17:47:41:283 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | blade dev mode: true
+2018-01-22 17:47:41:283 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | load sqlite database path [C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db]
+2018-01-22 17:47:41:283 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | load sqlite database src [jdbc:sqlite://C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db]
+2018-01-22 17:47:41:722 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | initialize import database - [SQLITE_ERROR] SQL error or missing database
+2018-01-22 17:47:41:723 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | database path is: C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db
+2018-01-22 17:47:41:729 INFO - [ _(:3」∠)_ ] c.b.j.Base                | ⬢ Blade-JDBC initializing
+2018-01-22 17:47:41:730 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Watched environment: true
+2018-01-22 17:47:41:762 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Use NioEventLoopGroup
+2018-01-22 17:47:41:980 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Tale (塌了) initialize successfully, Time elapsed: 779 ms
+2018-01-22 17:47:41:980 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Blade start with 0.0.0.0:880
+2018-01-22 17:47:41:981 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Open your web browser and navigate to http://127.0.0.1:880 ⚡
+2018-01-22 17:47:47:424 INFO - [ nio-worker@ thread-1 ] c.b.m.h.RequestExecution  | HTTP/1.1	GET	/
+2018-01-22 17:47:51:148 INFO - [ nio-worker@ thread-1 ] c.b.m.h.RequestExecution  | HTTP/1.1	GET	/doc
+2018-01-22 17:47:51:190 INFO - [ nio-worker@ thread-1 ] j.t.JetEngineImpl         | JetEngine.version = 2.1.5
+2018-01-22 17:47:51:191 INFO - [ nio-worker@ thread-1 ] j.t.JetEngineImpl         | JetEngine.loader = jetbrick.template.loader.ClasspathResourceLoader, root = /templates/, reload = true
+2018-01-22 17:47:51:195 INFO - [ nio-worker@ thread-1 ] j.t.r.c.ClassResolver     | import package: java.lang.*
+2018-01-22 17:47:51:195 INFO - [ nio-worker@ thread-1 ] j.t.r.c.ClassResolver     | import package: java.util.*
+2018-01-22 17:47:51:197 INFO - [ nio-worker@ thread-1 ] j.t.r.m.MethodInvokerResolver | import 38 methods from class jetbrick.template.runtime.buildin.JetMethods
+2018-01-22 17:47:51:198 INFO - [ nio-worker@ thread-1 ] j.t.r.f.FunctionInvokerResolver | import 11 functions from class jetbrick.template.runtime.buildin.JetFunctions
+2018-01-22 17:47:51:198 INFO - [ nio-worker@ thread-1 ] j.t.r.t.TagInvokerResolver | import 2 tags from class jetbrick.template.runtime.buildin.JetTags
+2018-01-22 17:47:51:199 INFO - [ nio-worker@ thread-1 ] j.t.r.GlobalResolver      | Scanning @JetMethods, @JetFunctions, @JetTags implements from [com.huruwo.demo] ...
+2018-01-22 17:47:51:211 INFO - [ nio-worker@ thread-1 ] j.t.r.GlobalResolver      | Found 0 annotated classes, time elapsed 12 ms.
+2018-01-22 17:47:51:217 INFO - [ nio-worker@ thread-1 ] j.t.JetTemplateImpl       | Loading template: dist/index.html
+2018-01-22 17:47:51:321 INFO - [ nio-worker@ thread-1 ] c.b.s.n.StaticFileHandler | HTTP/1.1	GET	/static/css/swagger-ui.css
+2018-01-22 17:47:51:322 INFO - [ nio-worker@ thread-2 ] c.b.s.n.StaticFileHandler | HTTP/1.1	GET	/static/js/swagger-ui-bundle.js
+2018-01-22 17:47:51:323 INFO - [ nio-worker@ thread-3 ] c.b.s.n.StaticFileHandler | HTTP/1.1	GET	/static/js/swagger-ui-standalone-preset.js
