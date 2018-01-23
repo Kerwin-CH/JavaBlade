@@ -11,10 +11,21 @@ public class ResUsers {
     // 用户的邮箱
     private String email;
 
-    public ResUsers(Integer uid, String username, String email) {
+    private String token;
+
+    public ResUsers(Integer uid, String username, String email, String token) {
         this.uid = uid;
         this.username = username;
         this.email = email;
+        this.token = token;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public Integer getUid() {

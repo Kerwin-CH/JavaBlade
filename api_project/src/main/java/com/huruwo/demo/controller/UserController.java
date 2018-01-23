@@ -1,11 +1,18 @@
 package com.huruwo.demo.controller;
 
+import com.blade.Blade;
 import com.blade.kit.DateKit;
+import com.blade.kit.EncryptKit;
 import com.blade.mvc.annotation.*;
+import com.blade.mvc.http.Request;
+import com.blade.mvc.http.Session;
 import com.blade.mvc.ui.RestResponse;
 import com.huruwo.demo.bean.ResUsers;
 import com.huruwo.demo.bean.Users;
 import com.huruwo.demo.response.ARestResponse;
+import com.huruwo.demo.util.PorUtils;
+
+import java.util.Date;
 
 /**
  * @author biezhi
@@ -57,8 +64,12 @@ public class UserController {
 
     @PostRoute("login")
     @JSON
-    public ARestResponse login(@Param String name, @Param String pass) {
+    public ARestResponse login(Request request,@Param String name, @Param String pass) {
 
+
+        /**
+         * 密码传输记得使用加密 md5/sha1
+         */
         try {
 
             /**
@@ -74,9 +85,31 @@ public class UserController {
             if (null == user) {
                 return ARestResponse.fail("用户名或密码错误");
             }
-            ResUsers resUsers = new ResUsers(user.getUid(), user.getUsername(), user.getEmail());
 
-            return ARestResponse.ok(resUsers);
+
+            Integer timestamp=DateKit.nowUnix();
+
+            //通过加密得到token 加点盐
+            user.setToken(EncryptKit.md5(name+pass+timestamp+"token123"));
+            user.setTimestamp(timestamp);
+
+            int  m= user.update(user.getUid());
+
+            if(m>0){
+                /**
+                 * 重新查询更新的值
+                 */
+                user = new Users().where("username", name).and("password", pass).find();
+
+                PorUtils.setToken(request,user.getToken());
+
+                ResUsers resUsers = new ResUsers(user.getUid(), user.getUsername(), user.getEmail(),user.getToken());
+                return ARestResponse.ok(resUsers);
+            }
+
+            return ARestResponse.fail("fail");
+
+
         } catch (Exception e) {
             return ARestResponse.fail(e.getMessage());
         }

@@ -3,6 +3,7 @@ package com.huruwo.restfulapp.api;
 
 import com.huruwo.restfulapp.BuildConfig;
 import com.huruwo.restfulapp.api.dyna.DynamicApiService;
+import com.huruwo.restfulapp.okhttp.HeaderInterceptor;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -76,7 +77,11 @@ public class ApiClient {
                     if (BuildConfig.DEBUG) {
                         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
                         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+
                         builder.addInterceptor(httpLoggingInterceptor);
+                        builder.addInterceptor(new HeaderInterceptor());
+
+                        //StethoInterceptor 是 facebook 的拦截库 可以结合浏览器调试
 //                      builder.addNetworkInterceptor(new StethoInterceptor());
 //                      BuildConfig.STETHO.addNetworkInterceptor(builder);
                     }

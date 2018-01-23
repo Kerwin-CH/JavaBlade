@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.huruwo.restfulapp.api.ApiConstants;
 import com.huruwo.restfulapp.api.AppAplication;
 import com.huruwo.restfulapp.api.AppDataRepository;
 import com.huruwo.restfulapp.api.AppException;
@@ -59,7 +60,10 @@ public class LoginActivity extends AppCompatActivity {
 
                                 if(value.getSuccess()==1) {
                                     Toast.makeText(getBaseContext(), "登录成功", Toast.LENGTH_SHORT).show();
+
                                     AppAplication.uid=value.getData().getUid();
+                                    ApiConstants.TOKEN=value.getData().getToken();
+
                                     startActivity(new Intent(LoginActivity.this, NoteListActivity.class));
                                     finish();
                                 }else {
@@ -98,6 +102,9 @@ public class LoginActivity extends AppCompatActivity {
                                 Log.i("danxx", "setValue------>");
 
                                 if(value.getSuccess()==1) {
+
+
+
                                     Toast.makeText(getBaseContext(), "注册成功，请登录", Toast.LENGTH_SHORT).show();
                                 }else {
                                     onError(new AppException(value.getMsg()));

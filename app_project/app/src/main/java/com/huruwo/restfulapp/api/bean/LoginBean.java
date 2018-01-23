@@ -9,7 +9,7 @@ public class LoginBean {
 
 
     /**
-     * data : {"uid":3,"username":"wanzai","email":"1458476478@qq.com"}
+     * data : {"uid":4,"username":"wanwan","email":"1458476478@qq.com","token":"125526ba6bc0ba582d9495d94470fdc4"}
      * success : 1
      * msg :
      * retCode : -1
@@ -54,14 +54,16 @@ public class LoginBean {
 
     public static class DataBean {
         /**
-         * uid : 3
-         * username : wanzai
+         * uid : 4
+         * username : wanwan
          * email : 1458476478@qq.com
+         * token : 125526ba6bc0ba582d9495d94470fdc4
          */
 
         private int uid;
         private String username;
         private String email;
+        private String token;
 
         public int getUid() {
             return uid;
@@ -85,6 +87,14 @@ public class LoginBean {
 
         public void setEmail(String email) {
             this.email = email;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
         }
     }
 }

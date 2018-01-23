@@ -7,7 +7,9 @@ import com.huruwo.restfulapp.api.bean.BaseBean;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by dxx on 2017/11/8.
@@ -23,9 +25,9 @@ public interface AppDataService {
     @POST("user/register")
     Observable<BaseBean> userRegister(@Field("name") String name, @Field("pass") String pass);
 
-    @FormUrlEncoded
-    @POST("note/list")
-    Observable<NoteBean> getNoteList(@Field("uid") int uid);
+
+    @GET("note/list")
+    Observable<NoteBean> getNoteList(@Query("uid") int uid);
 
 
     @FormUrlEncoded
