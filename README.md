@@ -10,6 +10,9 @@
 - 修改app_priject 的 ApiConstants 的 服务器地址
 - 编译运行App 
 
+- api 文档地址 /doc
+
+
 
 # APP 截图
  <img src="https://github.com/HuRuWo/LearnRESTfulApi/blob/master/sceen_img/001.jpg" width = "400" height = "680" alt="图片名称" align=center />
@@ -28,6 +31,16 @@
 
 <img src="https://github.com/HuRuWo/LearnRESTfulApi/blob/master/sceen_img/007.png" width = "800" height = "480" alt="图片名称" align=center />
 
+
+
+# API文档 截图
+
+<img src="https://github.com/HuRuWo/LearnRESTfulApi/blob/master/sceen_img/008.png" width = "800" height = "480" alt="图片名称" align=center />
+
+<img src="https://github.com/HuRuWo/LearnRESTfulApi/blob/master/sceen_img/009.png" width = "800" height = "480" alt="图片名称" align=center />
+
+
+
 # 其他
 
 项目只是抛砖引玉，功能不复杂。
@@ -41,3 +54,5 @@
 # 感谢
 
 - [blade](https://github.com/lets-blade/blade)
+- [swagger可视化编辑工具](http://www.sosoapi.com)
+- [swagger编辑工具](http://editor.swagger.io/)

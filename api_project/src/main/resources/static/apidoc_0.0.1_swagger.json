@@ -1,0 +1,338 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "<p>为简单记事本开发的api文档&nbsp;</p>",
+    "version": "0.0.1",
+    "title": "简单记事本api文档"
+  },
+  "tags": [],
+  "schemes": [],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/user/test": {
+      "get": {
+        "tags": ["用户"],
+        "summary": "测试接口",
+        "description": "<p><br></p>",
+        "operationId": "",
+        "schemes": [
+          "http"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "wanwan",
+            "format": ""
+          },
+          {
+            "name": "pass",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "wasdwasd",
+            "format": ""
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "1458476478@qq.com",
+            "format": ""
+          }
+        ],
+        "responses": {},
+        "sortWeight": 1,
+        "devStatus": "none",
+        "devStatusName": "不显示",
+        "showDevStatus": false,
+        "skipCommonParam": false,
+        "label": "",
+        "developer": "",
+        "modifyDate": "2018-01-23 10:21:34"
+      }
+    },
+    "/user/register": {
+      "post": {
+        "tags": ["用户"],
+        "summary": "注册",
+        "description": "<p><br></p>",
+        "operationId": "",
+        "schemes": [
+          "http"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "yiwanwan",
+            "format": ""
+          },
+          {
+            "name": "pass",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "wasdwasd",
+            "format": ""
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "1458476478@qq.com",
+            "format": ""
+          }
+        ],
+        "responses": {},
+        "sortWeight": 2,
+        "devStatus": "none",
+        "devStatusName": "不显示",
+        "showDevStatus": false,
+        "skipCommonParam": false,
+        "label": "",
+        "developer": "",
+        "modifyDate": "2018-01-23 10:23:03"
+      }
+    },
+    "/user/login": {
+      "post": {
+        "tags": ["用户"],
+        "summary": "登录",
+        "description": "<p><br></p>",
+        "operationId": "",
+        "schemes": [
+          "http"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "yiwanwan",
+            "format": ""
+          },
+          {
+            "name": "pass",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "wasdwasd",
+            "format": ""
+          }
+        ],
+        "responses": {},
+        "sortWeight": 2,
+        "devStatus": "none",
+        "devStatusName": "不显示",
+        "showDevStatus": false,
+        "skipCommonParam": false,
+        "label": "",
+        "developer": "",
+        "modifyDate": "2018-01-23 10:23:03"
+      }
+    },
+
+
+
+
+    "/note/list": {
+      "get": {
+        "tags": ["记事本"],
+        "summary": "记事列表",
+        "description": "<p><br></p>",
+        "operationId": "",
+        "schemes": [
+          "http"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "default": 0,
+            "format": ""
+          }
+        ],
+        "responses": {},
+        "sortWeight": 1,
+        "devStatus": "none",
+        "devStatusName": "不显示",
+        "showDevStatus": false,
+        "skipCommonParam": false,
+        "label": "",
+        "developer": "",
+        "modifyDate": "2018-01-23 10:21:34"
+      }
+    },
+    "/note/add": {
+      "post": {
+        "tags": ["记事本"],
+        "summary": "添加笔记",
+        "description": "<p><br></p>",
+        "operationId": "",
+        "schemes": [
+          "http"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "default": 0,
+            "format": ""
+          },
+          {
+            "name": "content",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "",
+            "format": ""
+          }
+        ],
+        "responses": {},
+        "sortWeight": 2,
+        "devStatus": "none",
+        "devStatusName": "不显示",
+        "showDevStatus": false,
+        "skipCommonParam": false,
+        "label": "",
+        "developer": "",
+        "modifyDate": "2018-01-23 10:23:03"
+      }
+    },
+    "/note/update": {
+      "post": {
+        "tags": ["记事本"],
+        "summary": "更新",
+        "description": "<p><br></p>",
+        "operationId": "",
+        "schemes": [
+          "http"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "uid",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "default": 0,
+            "format": ""
+          },
+          {
+            "name": "noteid",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "integer",
+            "default": 0,
+            "format": ""
+          },
+          {
+            "name": "content",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "wasdwasd",
+            "format": ""
+          }
+        ],
+        "responses": {},
+        "sortWeight": 2,
+        "devStatus": "none",
+        "devStatusName": "不显示",
+        "showDevStatus": false,
+        "skipCommonParam": false,
+        "label": "",
+        "developer": "",
+        "modifyDate": "2018-01-23 10:23:03"
+      }
+    }
+  },
+  "definitions": {},
+  "errorCodes": [],
+  "apiEnvs": [
+    {
+      "name": "本地路径",
+      "baseUrl": "http://127.0.0.1:880",
+      "sortWeight": 1,
+      "mock": false,
+      "status": "on"
+    },
+    {
+      "name": "线上",
+      "baseUrl": "http://www.sosoapi.com/demo/swagger",
+      "sortWeight": 2,
+      "mock": false,
+      "status": "on"
+    },
+    {
+      "name": "mock环境",
+      "baseUrl": "http://www.sosoapi.com/pass/mock/9188/",
+      "sortWeight": 2147483647,
+      "mock": true,
+      "status": "on"
+    }
+  ],
+  "commonParams": []
+}

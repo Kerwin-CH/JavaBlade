@@ -1,9 +1,6 @@
 package com.huruwo.demo.controller;
 
-import com.blade.mvc.annotation.JSON;
-import com.blade.mvc.annotation.Param;
-import com.blade.mvc.annotation.Path;
-import com.blade.mvc.annotation.PostRoute;
+import com.blade.mvc.annotation.*;
 import com.huruwo.demo.bean.Notes;
 import com.huruwo.demo.response.ARestResponse;
 
@@ -12,7 +9,7 @@ import java.util.List;
 @Path(value = "note")
 public class NoteController {
 
-    @PostRoute("list")
+    @GetRoute("list")
     @JSON
     public ARestResponse register(@Param int uid) {
 
