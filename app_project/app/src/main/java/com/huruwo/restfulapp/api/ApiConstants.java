@@ -6,7 +6,7 @@ package com.huruwo.restfulapp.api;
 
 public class ApiConstants {
 
-    public static final String GankHost = "http://192.168.0.111:880/";
+    public static final String BASEURL = "http://192.168.0.111:880/";
 
     public static  String TOKEN = "token";
 

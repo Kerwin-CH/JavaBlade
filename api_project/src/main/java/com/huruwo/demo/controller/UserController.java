@@ -64,7 +64,7 @@ public class UserController {
 
     @PostRoute("login")
     @JSON
-    public ARestResponse login(Request request,Session session,@Param String name, @Param String pass) {
+    public ARestResponse login(@Param String name, @Param String pass) {
 
 
         /**
@@ -87,11 +87,16 @@ public class UserController {
             }
 
 
-            Integer timestamp=DateKit.nowUnix();
+            Long timestamp=System.currentTimeMillis();
 
             //通过加密得到token 加点盐
             user.setToken(EncryptKit.md5(name+pass+timestamp+"token123"));
             user.setTimestamp(timestamp);
+
+            /**
+             * 写入时间
+             */
+            System.out.print(new Date(timestamp)+"\n");
 
             int  m= user.update(user.getUid());
 

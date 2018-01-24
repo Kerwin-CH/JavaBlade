@@ -26,7 +26,7 @@ public class HeaderInterceptor implements Interceptor {
                 .newBuilder()
                 .addHeader("token", ApiConstants.TOKEN)
                 .build();
-        // return chain.proceed(addParam(request));
+        //return chain.proceed(addParam(request));
         return chain.proceed(request);
     }
 
@@ -37,10 +37,12 @@ public class HeaderInterceptor implements Interceptor {
      * @return
      */
     private Request addParam(Request oldRequest) {
-
         HttpUrl.Builder builder = oldRequest.url()
                 .newBuilder()
-                .setEncodedQueryParameter("poscity", "公共参数");
+                /**
+                 * 不能 防止伪造时间戳
+                 */
+                .setEncodedQueryParameter("timestamp", System.currentTimeMillis()+"");
         Request newRequest = oldRequest.newBuilder()
                 .method(oldRequest.method(), oldRequest.body())
                 .url(builder.build())

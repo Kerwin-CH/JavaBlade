@@ -25,7 +25,7 @@ public class Users extends ActiveRecord {
     // 用户的邮箱
     private String email;
 
-    private Integer timestamp;
+    private Long timestamp;
 
     private String token;
 

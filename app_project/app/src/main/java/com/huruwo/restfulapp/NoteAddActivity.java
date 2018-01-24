@@ -76,6 +76,7 @@ public class NoteAddActivity extends AppCompatActivity {
                             public void onError(Throwable e) {
                                 Log.i("danxx", "onError------>");
                                 e.printStackTrace();
+                                Toast.makeText(getBaseContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -107,6 +108,7 @@ public class NoteAddActivity extends AppCompatActivity {
                                     public void onError(Throwable e) {
                                         Log.i("danxx", "onError------>");
                                         e.printStackTrace();
+                                        Toast.makeText(getBaseContext(),e.getMessage(), Toast.LENGTH_SHORT).show();
                                     }
 
                                     @Override

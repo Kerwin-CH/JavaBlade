@@ -6,6 +6,7 @@ import com.blade.mvc.http.Session;
 import com.huruwo.demo.bean.Users;
 import com.huruwo.demo.config.ProConst;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -38,10 +39,38 @@ public class PorUtils {
 
         LogUtils.i("getSqlToken",request.queryInt("uid",0)+"");
 
-        /**
-         *
-         */
         Users users=new Users().where("uid",request.queryInt("uid",0)).find();
+
+        /**
+         * 时间戳验证
+         */
+
+        LogUtils.i("客户端时间戳获取","Token"+new Date(System.currentTimeMillis()));
+        LogUtils.i("数据库时间戳获取","Token"+new Date(users.getTimestamp()));
+
+
+
+
+            /**
+             * 时间差
+             */
+            long token_date= timestamp-users.getTimestamp();
+
+            if(token_date-ProConst.TOKEN_LIFE>0){
+
+                LogUtils.i("时间戳验证","Token已过期"+(token_date-ProConst.TOKEN_LIFE));
+
+                return "";
+            }else {
+                LogUtils.i("时间戳验证","Token未过期"+(token_date-ProConst.TOKEN_LIFE));
+            }
+
+
+
+
+        /**
+         *token 验证
+         */
 
         return users.getToken();
     }

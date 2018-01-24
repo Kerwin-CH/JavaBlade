@@ -23,7 +23,7 @@ public class ApiClient {
      */
     public static AppDataService getAppDataService(){
 
-        AppDataService appDataService = initService(ApiConstants.GankHost, AppDataService.class);
+        AppDataService appDataService = initService(ApiConstants.BASEURL, AppDataService.class);
 
         return appDataService;
     }
@@ -56,7 +56,7 @@ public class ApiClient {
             synchronized (ApiClient.class) {
                 if (retrofitInstance == null) {
                     retrofitInstance = new Retrofit.Builder()
-                            .baseUrl(ApiConstants.GankHost)
+                            .baseUrl(ApiConstants.BASEURL)
                             .addConverterFactory(GsonConverterFactory.create())
                             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                             .client(getOkHttpClientInstance())

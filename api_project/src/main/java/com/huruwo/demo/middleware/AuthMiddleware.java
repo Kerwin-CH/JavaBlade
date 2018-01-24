@@ -30,7 +30,7 @@ public class AuthMiddleware implements WebHook {
 
             if (!checkHeaderAuth(request)) {
 
-                response.json(ARestResponse.fail("token错误"));
+                response.json(ARestResponse.fail("token失效或错误,请重新获取"));
 
                 return false;
             }
