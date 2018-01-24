@@ -1,38 +1,79 @@
-2018-01-23 18:03:42:529 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: jdk.version    => 1.8.0_131
-2018-01-23 18:03:42:531 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: user.dir       => C:\Users\Administrator\Desktop\api\java_restful\api_project
-2018-01-23 18:03:42:532 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: java.io.tmpdir => C:\Users\ADMINI~1\AppData\Local\Temp\
-2018-01-23 18:03:42:532 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: user.timezone  => Asia/Shanghai
-2018-01-23 18:03:42:532 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: file.encoding  => UTF-8
-2018-01-23 18:03:42:532 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: classpath      => C:\Users\Administrator\Desktop\api\java_restful\api_project\target\classes
-2018-01-23 18:03:42:593 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/
-2018-01-23 18:03:42:593 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/login
-2018-01-23 18:03:42:593 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/delete
-2018-01-23 18:03:42:593 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/doc
-2018-01-23 18:03:42:593 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/note/list
-2018-01-23 18:03:42:594 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/user/register
-2018-01-23 18:03:42:594 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/update
-2018-01-23 18:03:42:594 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/user/login
-2018-01-23 18:03:42:594 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/add
-2018-01-23 18:03:42:594 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/user/test
-2018-01-23 18:03:42:597 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Register bean: [com.huruwo.demo.config.DbConfig@1e63bbe, com.blade.Environment@180bbb, com.huruwo.demo.config.TplConfig@1352405, com.huruwo.demo.controller.NoteController@121d39a, com.huruwo.demo.config.TplConfig@1352405, com.huruwo.demo.controller.IndexController@142214b, com.huruwo.demo.controller.UserController@16dbe8b]
-2018-01-23 18:03:42:601 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | blade dev mode: true
-2018-01-23 18:03:42:601 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | load sqlite database path [C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db]
-2018-01-23 18:03:42:602 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | load sqlite database src [jdbc:sqlite://C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db]
-2018-01-23 18:03:42:865 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | initialize import database - [SQLITE_ERROR] SQL error or missing database
-2018-01-23 18:03:42:865 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | database path is: C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db
-2018-01-23 18:03:42:871 INFO - [ _(:3」∠)_ ] c.b.j.Base                | ⬢ Blade-JDBC initializing
-2018-01-23 18:03:42:871 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Watched environment: true
-2018-01-23 18:03:42:904 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Use NioEventLoopGroup
-2018-01-23 18:03:43:116 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Tale (塌了) initialize successfully, Time elapsed: 598 ms
-2018-01-23 18:03:43:116 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Blade start with 0.0.0.0:880
-2018-01-23 18:03:43:116 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Open your web browser and navigate to http://127.0.0.1:880 ⚡
-2018-01-23 18:03:50:311 INFO - [ nio-worker@ thread-1 ] c.b.m.h.RequestExecution  | HTTP/1.1	POST	/user/login
-2018-01-23 18:03:50:333 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT COUNT(*) FROM t_users WHERE username = :p1
-2018-01-23 18:03:50:333 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan]
-2018-01-23 18:03:50:370 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE username = :p1 AND password = :p2
-2018-01-23 18:03:50:370 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan, wasdwasd]
-2018-01-23 18:03:50:380 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => UPDATE t_users SET uid = :p1, username = :p2, password = :p3, email = :p4, timestamp = :p5, token = :p6 WHERE uid = :p7
-2018-01-23 18:03:50:380 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4, wanwan, wasdwasd, 1458476478@qq.com, 1516701830, 94e3be0c40ac1b84c139609279b56ab8, 4]
-2018-01-23 18:03:50:600 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE username = :p1 AND password = :p2
-2018-01-23 18:03:50:600 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan, wasdwasd]
-2018-01-23 18:03:50:705 INFO - [ nio-worker@ thread-1 ] c.b.m.h.RequestExecution  | HTTP/1.1	GET	/note/list
+2018-01-24 09:51:35:015 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: jdk.version    => 1.8.0_131
+2018-01-24 09:51:35:018 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: user.dir       => C:\Users\Administrator\Desktop\api\java_restful\api_project
+2018-01-24 09:51:35:018 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: java.io.tmpdir => C:\Users\ADMINI~1\AppData\Local\Temp\
+2018-01-24 09:51:35:018 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: user.timezone  => Asia/Shanghai
+2018-01-24 09:51:35:018 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: file.encoding  => UTF-8
+2018-01-24 09:51:35:018 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | Environment: classpath      => C:\Users\Administrator\Desktop\api\java_restful\api_project\target\classes
+2018-01-24 09:51:35:078 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/
+2018-01-24 09:51:35:078 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/login
+2018-01-24 09:51:35:078 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/doc
+2018-01-24 09:51:35:078 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/delete
+2018-01-24 09:51:35:078 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/note/list
+2018-01-24 09:51:35:079 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/user/register
+2018-01-24 09:51:35:079 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/update
+2018-01-24 09:51:35:079 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/user/login
+2018-01-24 09:51:35:079 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => POST	/note/add
+2018-01-24 09:51:35:079 INFO - [ _(:3」∠)_ ] c.b.m.r.RouteMatcher      | Add route => GET	/user/test
+2018-01-24 09:51:35:082 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Register bean: [com.huruwo.demo.config.DbConfig@1fa5f1d, com.blade.Environment@120198d, com.huruwo.demo.config.TplConfig@10048e3, com.huruwo.demo.controller.NoteController@4f4b3, com.huruwo.demo.config.TplConfig@10048e3, com.huruwo.demo.controller.IndexController@1715f19, com.huruwo.demo.controller.UserController@b2d20b]
+2018-01-24 09:51:35:086 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | blade dev mode: true
+2018-01-24 09:51:35:086 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | load sqlite database path [C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db]
+2018-01-24 09:51:35:086 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | load sqlite database src [jdbc:sqlite://C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db]
+2018-01-24 09:51:35:310 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | initialize import database - [SQLITE_ERROR] SQL error or missing database
+2018-01-24 09:51:35:311 INFO - [ _(:3」∠)_ ] c.h.d.c.SqliteJdbc        | database path is: C:\Users\Administrator\Desktop\api\java_restful\api_project/restful.db
+2018-01-24 09:51:35:317 INFO - [ _(:3」∠)_ ] c.b.j.Base                | ⬢ Blade-JDBC initializing
+2018-01-24 09:51:35:318 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Watched environment: true
+2018-01-24 09:51:35:352 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Use NioEventLoopGroup
+2018-01-24 09:51:35:562 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Tale (塌了) initialize successfully, Time elapsed: 559 ms
+2018-01-24 09:51:35:562 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Blade start with 0.0.0.0:880
+2018-01-24 09:51:35:562 INFO - [ _(:3」∠)_ ] c.b.s.n.NettyServer       | ⬢ Open your web browser and navigate to http://127.0.0.1:880 ⚡
+2018-01-24 09:51:41:858 INFO - [ nio-worker@ thread-1 ] c.b.m.h.RequestExecution  | HTTP/1.1	GET	/note/list
+2018-01-24 09:51:41:878 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE uid = :p1
+2018-01-24 09:51:41:879 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]
+2018-01-24 09:51:41:917 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_notes WHERE uid = :p1
+2018-01-24 09:51:41:917 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]
+2018-01-24 09:51:49:587 INFO - [ nio-worker@ thread-1 ] c.b.m.h.RequestExecution  | HTTP/1.1	POST	/user/login
+2018-01-24 09:51:49:616 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT COUNT(*) FROM t_users WHERE username = :p1
+2018-01-24 09:51:49:616 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan]
+2018-01-24 09:51:49:624 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE username = :p1 AND password = :p2
+2018-01-24 09:51:49:624 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan, wasdwasd]
+2018-01-24 09:51:49:632 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => UPDATE t_users SET uid = :p1, username = :p2, password = :p3, email = :p4, timestamp = :p5, token = :p6 WHERE uid = :p7
+2018-01-24 09:51:49:632 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4, wanwan, wasdwasd, 1458476478@qq.com, 1516758709, 6cdb5e376ae6cf6f5045ed99882791a4, 4]
+2018-01-24 09:51:49:742 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE username = :p1 AND password = :p2
+2018-01-24 09:51:49:742 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan, wasdwasd]
+2018-01-24 09:51:50:207 INFO - [ nio-worker@ thread-1 ] c.b.m.h.RequestExecution  | HTTP/1.1	GET	/note/list
+2018-01-24 09:51:50:209 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE uid = :p1
+2018-01-24 09:51:50:209 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]
+2018-01-24 09:51:50:212 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_notes WHERE uid = :p1
+2018-01-24 09:51:50:212 DEBUG - [ nio-worker@ thread-1 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]
+2018-01-24 10:27:25:262 INFO - [ nio-worker@ thread-2 ] c.b.m.h.RequestExecution  | HTTP/1.1	POST	/user/login
+2018-01-24 10:27:25:274 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT COUNT(*) FROM t_users WHERE username = :p1
+2018-01-24 10:27:25:274 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan]
+2018-01-24 10:27:25:279 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE username = :p1 AND password = :p2
+2018-01-24 10:27:25:280 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan, wasdwadd]
+2018-01-24 10:27:34:295 INFO - [ nio-worker@ thread-2 ] c.b.m.h.RequestExecution  | HTTP/1.1	POST	/user/login
+2018-01-24 10:27:34:298 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT COUNT(*) FROM t_users WHERE username = :p1
+2018-01-24 10:27:34:298 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan]
+2018-01-24 10:27:34:302 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE username = :p1 AND password = :p2
+2018-01-24 10:27:34:302 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan, wasdwasd]
+2018-01-24 10:27:34:306 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => UPDATE t_users SET uid = :p1, username = :p2, password = :p3, email = :p4, timestamp = :p5, token = :p6 WHERE uid = :p7
+2018-01-24 10:27:34:306 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4, wanwan, wasdwasd, 1458476478@qq.com, 1516760854, 080a207c6a412b0c2b5b3e8702a62995, 4]
+2018-01-24 10:27:34:412 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE username = :p1 AND password = :p2
+2018-01-24 10:27:34:412 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [wanwan, wasdwasd]
+2018-01-24 10:27:34:900 INFO - [ nio-worker@ thread-2 ] c.b.m.h.RequestExecution  | HTTP/1.1	GET	/note/list
+2018-01-24 10:27:34:904 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE uid = :p1
+2018-01-24 10:27:34:904 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]
+2018-01-24 10:27:34:909 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_notes WHERE uid = :p1
+2018-01-24 10:27:34:909 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]
+2018-01-24 10:27:39:030 INFO - [ nio-worker@ thread-2 ] c.b.m.h.RequestExecution  | HTTP/1.1	POST	/note/update
+2018-01-24 10:27:39:040 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE uid = :p1
+2018-01-24 10:27:39:040 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]
+2018-01-24 10:27:39:045 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_notes WHERE noteid = :p1
+2018-01-24 10:27:39:045 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [48]
+2018-01-24 10:27:39:047 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => UPDATE t_notes SET noteid = :p1, uid = :p2, content = :p3 WHERE noteid = :p4
+2018-01-24 10:27:39:048 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [48, 4, 「水形物语」，一部略带黑暗气质的唯美童话，虽然影片氛围潮湿、阴郁，女主还是个哑巴，但如果你也喜欢「佩小姐的奇幻城堡」的话，肯定也会爱上这部电影的。
+主角是女主和鱼人，至于他们是如何“开车”的，请结合图三自行脑补🌝, 48]
+2018-01-24 10:27:39:629 INFO - [ nio-worker@ thread-2 ] c.b.m.h.RequestExecution  | HTTP/1.1	GET	/note/list
+2018-01-24 10:27:39:631 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_users WHERE uid = :p1
+2018-01-24 10:27:39:631 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]
+2018-01-24 10:27:39:633 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Execute SQL => SELECT * FROM t_notes WHERE uid = :p1
+2018-01-24 10:27:39:633 DEBUG - [ nio-worker@ thread-2 ] c.b.j.c.ActiveRecord      | ⬢ Parameters  => [4]

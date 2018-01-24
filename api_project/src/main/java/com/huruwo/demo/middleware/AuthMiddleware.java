@@ -5,6 +5,7 @@ import com.blade.mvc.hook.WebHook;
 import com.blade.mvc.http.Request;
 import com.blade.mvc.http.Response;
 import com.huruwo.demo.response.ARestResponse;
+import com.huruwo.demo.util.LogUtils;
 import com.huruwo.demo.util.PorUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,9 +26,7 @@ public class AuthMiddleware implements WebHook {
 
         String uri = request.uri();
 
-        System.out.print("token:"+uri);
-
-        if(!uri.equals("/user/login")) {
+        if(!uri.equals("/user/login")&&!uri.equals("/user/register")) {
 
             if (!checkHeaderAuth(request)) {
 
@@ -52,9 +51,9 @@ public class AuthMiddleware implements WebHook {
 
         String auth = request.header("token");
 
-        System.out.print("token:"+auth);
+        LogUtils.i("token",auth);
 
-        if(auth.equals(PorUtils.getToken())){
+        if(auth.equals(PorUtils.getSqlToken(request))){
             return true;
         }
 

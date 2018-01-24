@@ -64,7 +64,7 @@ public class UserController {
 
     @PostRoute("login")
     @JSON
-    public ARestResponse login(Request request,@Param String name, @Param String pass) {
+    public ARestResponse login(Request request,Session session,@Param String name, @Param String pass) {
 
 
         /**
@@ -100,8 +100,6 @@ public class UserController {
                  * 重新查询更新的值
                  */
                 user = new Users().where("username", name).and("password", pass).find();
-
-                PorUtils.setToken(request,user.getToken());
 
                 ResUsers resUsers = new ResUsers(user.getUid(), user.getUsername(), user.getEmail(),user.getToken());
                 return ARestResponse.ok(resUsers);
